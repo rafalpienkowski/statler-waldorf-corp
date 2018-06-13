@@ -1,0 +1,6 @@
+version: '3.1'
+services:
+  team-service:
+    image: rafalpienkowski/statler-waldorf-corp-team-service:latest
+    ports:
+     - "8080:80"

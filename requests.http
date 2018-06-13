@@ -1,0 +1,18 @@
+
+GET http://localhost:8080/api/teams HTTP/1.1
+
+###
+
+POST http://localhost:8080/api/teams HTTP/1.1
+Content-Type: application/json
+
+{
+    "Name": "First team",
+    "Id": "9c7489c4-5d6c-4859-9526-98463811b49d"
+}
+
+###
+
+GET http://localhost:8080/api/teams
+
+###
