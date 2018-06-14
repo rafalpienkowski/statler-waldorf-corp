@@ -1,2 +1,2 @@
 # Statler-Waldorf Corp
-This is an orchiestration repositor for the microservice architecture solution. This repository contains docker-compose.yml file for the orchiestration purpose and some example HTTP request which can be send via Visual Studio Code with REST Client extension installed.
+This is an orchestration repositor for the microservice architecture solution. This repository contains the docker-compose.yml file for the orchestration purpose and some example HTTP request which can be sent via Visual Studio Code with REST Client extension installed.
