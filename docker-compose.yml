@@ -3,4 +3,18 @@ services:
   team-service:
     image: rafalpienkowski/statler-waldorf-corp-team-service:latest
     ports:
-     - "8080:80"
+     - "5000:80"
+  location-service:
+    image: rafalpienkowski/statler-waldorf-corp-location-service:latest
+    ports:
+     - "5001:80"
+    depends_on:
+      - postgres
+  postgres: 
+    image: postgres:10
+    ports:
+     - "5432:5432"
+    environment:
+     - POSTGRES_PASSWORD=mysecretpassword
+     - POSTGRES_USER=postgres
+     - POSGREES_DB=locationservice
