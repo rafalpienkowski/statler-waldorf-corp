@@ -11,7 +11,7 @@ services:
     depends_on:
       - postgres
   location-reporter:
-    image: "rafalpienkowski/statler-waldorf-corp-location-reporter-service:latest"
+    image: rafalpienkowski/statler-waldorf-corp-location-reporter:latest
     ports:
       - "5002:500"
     depends_on:
