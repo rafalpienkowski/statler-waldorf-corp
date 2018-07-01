@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  team-service:
+    image: "local/statler-waldorf-corp-team-service:latest"
+    build: ../statler-waldorf-corp-team-service/
+    ports:
+     - "5000:5000"
+  location-service:
+    image: "local/statler-waldorf-corp-location-service:latest"
+    build: ../statler-waldorf-corp-location-service/
+    ports:
+     - "5001:5000"
+    depends_on:
+      - postgres
+  postgres: 
+    image: postgres:10
+    ports:
+     - "5432:5432"
+    environment:
+     - POSTGRES_PASSWORD=mysecretpassword
+     - POSTGRES_USER=postgres
+     - POSGREES_DB=locationservice
