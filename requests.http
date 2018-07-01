@@ -101,3 +101,23 @@ GET http://localhost:5001/api/locations/5152cfb5-c44e-4b10-9e89-0b2dc61d8ba3 HTT
 
 # Get latest location for member
 GET http://localhost:5001/api/locations/5152cfb5-c44e-4b10-9e89-0b2dc61d8ba3/latest
+
+###
+
+# Report location
+
+POST http://localhost:5002/api/members/5152cfb5-c44e-4b10-9e89-0b2dc61d8ba3/locationreports HTTP/1.1
+Content-Type: application/json
+
+{
+    "Id": "{{$guid}}",
+    "Origin": "Origin",
+    "Longitude": "12.561",
+    "Latitude": "45.568",
+    "MemberId": "5152cfb5-c44e-4b10-9e89-0b2dc61d8ba3"
+}
+
+###
+
+# Get team for meber
+GET http://localhost:5000/api/members/5152cfb5-c44e-4b10-9e89-0b2dc61d8ba3/team

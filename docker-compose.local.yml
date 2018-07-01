@@ -12,6 +12,18 @@ services:
      - "5001:5000"
     depends_on:
       - postgres
+  location-reporter:
+    image: "local/statler-waldorf-corp-location-reporter-service:latest"
+    build: ../statler-waldorf-corp-location-reporter/
+    ports:
+      - "5002:5000"
+    depends_on:
+      - "rabbitmq"
+  rabbitmq:
+    image: rabbitmq:3.7.6-management
+    ports:
+      - "8080:15672"
+      - "5672:5672"
   postgres: 
     image: postgres:10
     ports:
