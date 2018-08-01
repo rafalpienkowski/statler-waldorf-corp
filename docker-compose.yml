@@ -4,18 +4,35 @@ services:
     image: rafalpienkowski/statler-waldorf-corp-team-service:latest
     ports:
      - 5000:5000
+    environment:
+     - MongoDb__ConnectionString=mongodb://mongodb:27017
+     - Location__Url=http://location-service:5001
+    depends_on:
+     - mongodb
+     - location-service
+  mongodb:
+    image: mongo:3.6.5
+    ports:
+     - 27017:27017
+    environment:
+      - AUTH=no
   location-service:
     image: rafalpienkowski/statler-waldorf-corp-location-service:latest
     ports:
      - 5001:5000
     depends_on:
       - postgres
+    environment:
+     - Db__ConnectionString=Host=postgres;Port=5432;Database=locationservice;Username=postgres;Password=mysecretpassword
   location-reporter:
     image: rafalpienkowski/statler-waldorf-corp-location-reporter:latest
     ports:
       - 5002:5000
     depends_on:
       - rabbitmq
+    environment:
+      - TeamService__Url=http://team-service:5000
+      - Amqp__Uri=amqp://rabbitmq:5672/
   rabbitmq:
     image: rabbitmq:3.7.6-management
     ports:
